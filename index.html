@@ -195,10 +195,7 @@ input.dt,input.tel{direction:ltr;text-align:right}
     d.setDate(Math.min(day, last));
     return d;
   }
-  function fmt(d){
-    try { return d.toLocaleDateString('ar-u-nu-latn', {day:'numeric', month:'long', year:'numeric'}); }
-    catch(e){ return toISO(d); }
-  }
+  function fmt(d){ return pad(d.getDate()) + '/' + pad(d.getMonth()+1) + '/' + d.getFullYear(); }
   function ymd(d){ return d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()); }
   function uid(){ return 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
 
